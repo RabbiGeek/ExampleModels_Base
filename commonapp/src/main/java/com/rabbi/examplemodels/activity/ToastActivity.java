@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 import com.rabbi.examplemodels.R;
 import com.rabbi.examplemodels.common.base.BaseActivity;
-//算法存在问题
+
 public class ToastActivity extends BaseActivity {
 
 
@@ -36,14 +36,9 @@ public class ToastActivity extends BaseActivity {
 
     public void textParam(String... a){
         String str1="",str2="",strTmp="";
-        for (int i = 0; i < a.length; i++) {
-            if (i/2>0){
-                Log.d(TAG,"i'm param one>>>"+a[i]);
-                str1=a[i];
-            }else {
-                Log.e(TAG,"i'm param two>>>"+a[i]);
-                str2=a[i];
-            }
+        for (int i = 0; i < a.length; i+=2) {
+
+            str1=a[i];str2=a[i+1];
             Log.e(TAG,"str1,str2:"+str1+"|"+str2);
             strTmp+="\nstr1,str2:"+str1+"|"+str2;
         }

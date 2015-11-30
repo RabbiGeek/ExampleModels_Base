@@ -150,16 +150,18 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         return new Intent(this, cls);
     }
 
-    protected Intent startAtvParam(Class cls,String key,String id,@Nullable String key2,@Nullable String id2) {
+    /**
+     * 多String 参数配置跳转
+     * @param cls
+     * @param key
+     * @return
+     */
+    protected Intent startAtvParam (Class cls,String... key) {
+//        String str1="",str2="";
         Intent intent = startAtvParam(cls);
-        intent.putExtra(key, id);
-        intent.putExtra(key2, id2);
-        return intent;
-    }
-    protected Intent startAtvParam(Class cls,String key,int id,@Nullable String key2,@Nullable String id2) {
-        Intent intent = startAtvParam(cls);
-        intent.putExtra(key, id);
-        intent.putExtra(key2, id2);
+        for (int i = 0; i < key.length; i+=2) {
+            intent.putExtra(key[i],key[i+1]);
+        }
         return intent;
     }
 
@@ -173,18 +175,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     protected void startAtv(Class cls) {
         startActivity(startAtvParam(cls));
     }
-    /**
-     *
-     * @Description: TODO
-     * @param cls
-     * @param key
-     * @param id
-     * @return void
-     * @throws
-     */
-    protected void startAtv(Class cls, String key, int id) {
-        startActivity(startAtvParam(cls,key,id,null,null));
-    }
+
     /**
      *
      * @Description: TODO
@@ -195,36 +186,26 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
      * @throws
      */
     protected void startAtv(Class cls, String key, String id) {
-        startActivity(startAtvParam(cls,key,id,null,null));
+        startActivity(startAtvParam(cls,key,id));
     }
-    /**
-     * @param cls
-     * @param key
-     * @param id
-     * @param key2
-     * @param id2
-     * @return void
-     * @throws
-     */
-    protected void startAtv(Class cls, String key, int id, String key2,
-                            String id2) {
-        startActivity(startAtvParam(cls,key,id,key2,id2));
-    }
+
     /**
      *
-     * @Description: TODO
      * @param cls
      * @param key
      * @param id
      * @param key2
      * @param id2
-     * @return void
-     * @throws
      */
-    protected void startAtv(Class cls, String key, String id, String key2,
+    protected void startAtv  (Class cls, String key, String id, String key2,
                             String id2) {
+        if (TextUtils.isEmpty(key)||TextUtils.isEmpty(id)||TextUtils.isEmpty(key2)||TextUtils.isEmpty(id2)) {
+            showToast("参数异常，请检查传递参数");
+            return;
+        }
         startActivity(startAtvParam(cls,key,id,key2,id2));
     }
+
 ///<<<<<----strActivity end
 
 
