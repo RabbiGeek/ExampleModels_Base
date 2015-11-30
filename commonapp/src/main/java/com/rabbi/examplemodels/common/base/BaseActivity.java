@@ -198,10 +198,11 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
      * @param id2
      */
     protected void startAtv  (Class cls, String key, String id, String key2,
-                            String id2) {
+                            String id2) throws IllegalArgumentException{
         if (TextUtils.isEmpty(key)||TextUtils.isEmpty(id)||TextUtils.isEmpty(key2)||TextUtils.isEmpty(id2)) {
+
             showToast("参数异常，请检查传递参数");
-            return;
+            return ;
         }
         startActivity(startAtvParam(cls,key,id,key2,id2));
     }
