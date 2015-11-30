@@ -30,6 +30,7 @@ public class HomeActivity extends BaseActivity implements Handler.Callback {
         switch (msg.what){
             case 0:
                 showToast(String.valueOf(msg.obj));
+                startAtv(ToastActivity.class);
         }
         return false;
     }
