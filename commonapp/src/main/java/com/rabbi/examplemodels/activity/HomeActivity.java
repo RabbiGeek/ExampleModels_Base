@@ -1,9 +1,8 @@
 package com.rabbi.examplemodels.activity;
 
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 
 import com.rabbi.examplemodels.R;
@@ -30,7 +29,7 @@ public class HomeActivity extends BaseActivity implements Handler.Callback {
         switch (msg.what){
             case 0:
                 showToast(String.valueOf(msg.obj));
-                startAtv(ToastActivity.class);
+                startAtv(CustomActivity.class);
         }
         return false;
     }
@@ -44,4 +43,23 @@ public class HomeActivity extends BaseActivity implements Handler.Callback {
 
         }
     }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        // restore the current data, for instance when changing the screen
+// orientation
+//        mDataset = savedInstanceState.getSerializable("dataset"); //取出保存的状态
+//        mRenderer = (XYMultipleSeriesRenderer) savedInstanceState.getSerializable("renderer");
+
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+//        // save the current data, for instance when changing screen orientation // 保存要保存的控件状态
+//        outState.putSerializable("dataset", mDataset);
+//        outState.putSerializable("renderer", mRenderer);
+    }
+
 }

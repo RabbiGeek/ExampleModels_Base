@@ -15,7 +15,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.ToastActivity"></activity>
+        <activity android:name=".activity.ToastActivity" />
+        <activity android:name=".activity.CustomActivity" />
+        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.ListActivity"></activity>
     </application>
 
 </manifest>

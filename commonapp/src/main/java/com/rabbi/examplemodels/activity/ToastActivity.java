@@ -1,7 +1,5 @@
 package com.rabbi.examplemodels.activity;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -39,8 +37,8 @@ public class ToastActivity extends BaseActivity {
         for (int i = 0; i < a.length; i+=2) {
 
             str1=a[i];str2=a[i+1];
-            Log.e(TAG,"str1,str2:"+str1+"|"+str2);
-            strTmp+="\nstr1,str2:"+str1+"|"+str2;
+            Log.e(TAG,"str1:"+str1+" |str2:"+str2);
+            strTmp+="\nstr1:"+str1+" |str2:"+str2;
         }
             tvMsg.setText(strTmp);
     }
